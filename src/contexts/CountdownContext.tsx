@@ -25,12 +25,12 @@ export const CountdownContext = createContext({} as CountdownContextData);
 
 let countdownTimeout: NodeJS.Timeout;
 
-const TIME = 0.1 * 60;
+const COUNTDOWN_TIME = 25 * 60;
 
 export function CountdownProvider({ children }: CountdownProviderPorps) {
   const { startNewChallenge } = useContext(ChallengeContext);
 
-  const [time, setTime] = useState(TIME);
+  const [time, setTime] = useState(COUNTDOWN_TIME);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -45,7 +45,7 @@ export function CountdownProvider({ children }: CountdownProviderPorps) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(TIME);
+    setTime(COUNTDOWN_TIME);
   }
 
   useEffect(() => {
