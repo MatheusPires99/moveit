@@ -1,18 +1,91 @@
 .container {
   height: 100vh;
-  max-width: 992px;
-  margin: 0 auto;
-  padding: 2.5rem 2rem;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.container section {
-  flex: 1;
+  background: var(--blue);
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6.25rem;
-  align-content: center;
+  grid-template-columns: 1fr 1fr 420px 1fr;
+  grid-template-rows: 1fr 420px 1fr;
+  grid-template-areas:
+    '. logo . .'
+    '. logo content .'
+    '. logo . .';
+  grid-gap: 120px;
+  justify-content: center;
+  align-items: center;
+}
+
+.container > img {
+  grid-area: logo;
+}
+
+.container .content {
+  grid-area: content;
+}
+
+.container .content h1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: var(--white);
+
+  margin-top: 6rem;
+}
+
+.container .content p {
+  display: flex;
+  align-items: center;
+
+  margin: 1.5rem 0 2.5rem;
+  max-width: 18rem;
+
+  color: var(--text-highlight);
+}
+
+.container .content p img {
+  margin-right: 1.5rem;
+}
+
+.formContainer {
+  display: flex;
+  align-items: center;
+
+  height: 80px;
+}
+
+.formContainer input {
+  flex: 1;
+  height: 100%;
+
+  color: var(--white);
+  font-size: 1.25rem;
+
+  border: 1px solid transparent;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(to right, var(--blue-dark), var(--blue));
+
+  transition: border-color 0.2s;
+}
+
+.formContainer input::placeholder {
+  color: var(--text-highlight);
+}
+
+.formContainer input:hover, .formContainer input:focus {
+  border-color: #414aa3;
+}
+
+.formContainer button {
+  height: 100%;
+  width: 80px;
+  border: 0;
+  background: var(--blue-dark);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  transition: background 0.2s;
+}
+
+.formContainer button:hover {
+  background: var(--green);
 }
